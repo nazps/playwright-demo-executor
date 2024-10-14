@@ -28,7 +28,6 @@ export class RecordPage<T extends SObjectInterface<T>>{
         return this
       }
     tabsStwitcher():TabsSwitcher<T> {
-        log
         return this.tabsSwitcher;
     }
     platformActions():PlatformActionsComponent{
