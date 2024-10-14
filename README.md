@@ -1,13 +1,13 @@
-1. Installation:
+1. Pre Requisites, the following must be installed on your machine:
    - git 
    - node V18.18.1
    - npm  9.8.1
 
-3. Running:
+2. Running:
 - clone the repo:
 - ```git clone https://github.com/nazps/playwright-demo-executor.git```
 
-3. In terminal: 
+3. In terminal navigate to the folder where you cloned the repo: 
 
 - to only run tests:
 ```
