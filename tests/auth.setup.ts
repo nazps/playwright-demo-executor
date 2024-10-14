@@ -10,7 +10,7 @@ const token: string = process.env.TOKEN ? process.env.TOKEN : '';
 setup('authenticate as admin', async ({ page }) => {
     const loginPage = new LoginPage(page)
     await loginPage.goto();
-    const avatar = (await loginPage.login(username, password+token)).avatar;
+    const avatar = (await loginPage.login(username, password)).avatar;
     await expect(avatar).toHaveCSS('display', 'inline-block')
   await page.context().storageState({ path: adminFile });
 });
