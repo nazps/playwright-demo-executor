@@ -4,12 +4,14 @@
    - npm  9.8.1
 
 3. Running:
-- clone the repo: git clone https://github.com/nazps/playwright-demo-executor.git
+- clone the repo:
+- ```git clone https://github.com/nazps/playwright-demo-executor.git```
 
 3. In terminal: 
 
 - to only run tests:
 ```
+npx playwright install
 npm install
 npm run test
 ```
