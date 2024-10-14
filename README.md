@@ -1,6 +1,8 @@
 1. PreRequisities:
- - node V18.18.1
- - npm  9.8.1
+   Install:
+   - git 
+   - node V18.18.1
+   - npm  9.8.1
 
 2. Running:
 - clone the repo: git clone https://github.com/nazps/playwright-demo-executor.git
