@@ -45,6 +45,7 @@ export default defineConfig({
       name: 'chromium',
       use: { 
         ...devices['Desktop Chrome'],
+        video: 'on',
         launchOptions: {
           //slowMo: 500, // a 1000 milliseconds pause before each operation. Useful for slow systems.
         },
