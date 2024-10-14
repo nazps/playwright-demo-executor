@@ -7,12 +7,12 @@ export class AccountDeleteStrategy implements DeleteStrategy {
       try {
         const isCustomDeleteStrategy = process.env.CUSTOM_ACCOUNT_DELETE_STRATEGY
         if(!isCustomDeleteStrategy){
-          //yocova only - need to delete enterprise roles before deleting account
+          //ycv only - need to delete enterprise roles before deleting account
           const queryResults = await connection.query(`SELECT Id FROM Enterprise_Role__c WHERE Account__c IN (${ids.map(id => `'${id}'`).join(',')})`);
           const records = queryResults.records.map(record => `${record.Id}`);
           const res = await connection.sobject('Enterprise_Role__c').del(records);
           console.log(`Deleted Enterprise_Role__c`, JSON.stringify(res));
-          //finish yocova only
+          //finish ycv only
         }
         //this deletes Accounts
         const result = await connection.sobject('Account').del(ids);
