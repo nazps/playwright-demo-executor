@@ -15,4 +15,4 @@ to start a server and execute tests via pressing a button:
 npm start
 ```
 navigate to: `http://localhost:3000`
-press `Run`
+press `Run Tests`
