@@ -5,7 +5,7 @@
   "main": "src/router/index.ts",
   "scripts": {
     "start": "ts-node src/app.ts",
-    "test": "npx playwright test"
+    "test": "npx playwright test --headed"
   },
   "keywords": [],
   "author": "",
