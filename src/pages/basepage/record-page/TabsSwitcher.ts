@@ -26,9 +26,7 @@ export class TabsSwitcher<T extends SObjectInterface<T>> {
         const isSelected = await tabToSelect.getAttribute('aria-selected');
         
         if (isSelected === 'true') {
-          console.log(`${tab} tab is already selected.`);
         } else {
-          console.log(`Switching to ${tab} tab.`);
           await tabToSelect.click();
           await expect(tabToSelect).toHaveAttribute('aria-selected', 'true');
         }

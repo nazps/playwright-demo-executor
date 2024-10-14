@@ -18,8 +18,6 @@ export class RecordPage<T extends SObjectInterface<T>>{
     }
 
     async goto() : Promise<RecordPage<T>> {
-        console.log(` record id url is: ${this.url}/${this.sobject.id}`);
-        
         if(this.sobject.id){
         await this.page.goto(`${this.url}/${this.sobject.id}`);
         await this.page.waitForURL(`**/${this.sobject.id}/view`)

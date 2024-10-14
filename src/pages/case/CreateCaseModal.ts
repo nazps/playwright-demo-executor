@@ -22,8 +22,8 @@ export class CreateCaseModal {
 
     // Selectors within the active modal using getByRole
     this.modalTitle = this.modal.getByRole('heading', { name: 'New Case' });
-    this.contactInput = this.modal.getByRole('textbox', { name: 'Contact Name' });
-    this.contactOption = (contactName) => this.modal.getByRole('option', { name: contactName });
+    this.contactInput = this.modal.locator('input[placeholder="Search Contacts..."]');
+    this.contactOption = (contactName) => this.modal.locator(`li >> text=${contactName}`);
     this.statusDropdown = this.modal.getByRole('combobox', { name: 'Status' });
     this.statusOption = (status) => this.modal.getByRole('option', { name: status });
     this.subjectInput = this.modal.getByRole('textbox', { name: 'Subject' });
