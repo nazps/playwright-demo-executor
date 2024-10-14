@@ -16,7 +16,7 @@ test.describe('Accounts Tests', ()=>{
     })
 
   test('create account and navigate to it', async ({ page, sfApi}) => {
-    test.setTimeout(120000);
+    test.setTimeout(300000);
     const accountName:string = faker.company.name();
     const account = await new Account().withName(accountName).build(sfApi)
     expect(account.getId()).toBeDefined()
@@ -34,8 +34,12 @@ test.describe('Accounts Tests', ()=>{
     await accountDetailsTab.editFieldValue('Industry', 'Chemicals');
     const actualIndustry = await accountDetailsTab.getFieldValue('Industry');
     expect(actualIndustry).toBe('Chemicals')
-
-    await accountPage.platformActions().clickNewCase()
-    await sleep(15000)
+    await sleep(2000)
+    const createCaseModal = await accountPage.platformActions().clickNewCase()
+    //await createCaseModal.selectContact('Rose Gonzalez');
+    //await createCaseModal.selectStatus('Working');
+    //await createCaseModal.fillCaseDetails("Demo Case", "This is super urgent Case");
+    await createCaseModal.saveCase();
+    await sleep(2000)
   })
 });

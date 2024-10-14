@@ -1,4 +1,5 @@
 import { Locator, Page } from '@playwright/test';
+import { CreateCaseModal } from '../../case/CreateCaseModal';
 
 export class PlatformActionsComponent {
   private page: Page;
@@ -35,8 +36,9 @@ export class PlatformActionsComponent {
   /**
    * Clicks on the "New Case" button.
    */
-  async clickNewCase(): Promise<void> {
+  async clickNewCase(): Promise<CreateCaseModal> {
     await this.newCaseButton.click();
+    return new CreateCaseModal(this.page)
   }
 
   /**

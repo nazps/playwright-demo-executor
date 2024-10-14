@@ -3,6 +3,7 @@ import { Tab } from "../basepage/record-page/Tab";
 import { DetailItemInput } from "../basepage/detail-tab/DetailItemInput";
 import { DetailItem } from "../basepage/detail-tab/DetailItemInterface";
 import { DetailItemDropdown } from "../basepage/detail-tab/DetailItemDropdown";
+import { sleep } from "../../helpers/waitHelpers";
 
 export class AccountDetailsTab implements Tab {
     private fields: Map<string, DetailItem>;
@@ -39,7 +40,7 @@ export class AccountDetailsTab implements Tab {
      */
     async editFieldValue(fieldLabel: string, newValue: string): Promise<string> {
         const field = this.fields.get(fieldLabel);
-        if (!field) throw new Error(`dupa Field with label "${fieldLabel}" not found.`);
+        if (!field) throw new Error(`Field with label "${fieldLabel}" not found.`);
         await field.edit(newValue);
         return await this.getFieldValue(fieldLabel)
     }

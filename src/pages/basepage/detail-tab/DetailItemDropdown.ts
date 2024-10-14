@@ -59,7 +59,7 @@ export class DetailItemDropdown implements DetailItem {
    * @returns {Promise<string>} The currently selected option value.
    */
   async getFieldValue(): Promise<string> {
-    await this.saveButtonLocator.isHidden();
+   // await this.saveButtonLocator.isHidden();
     return (await this.dropdownButton.textContent())?.trim() || '';
   }
 }
