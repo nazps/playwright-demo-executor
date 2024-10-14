@@ -1,17 +1,18 @@
-PreRequisities:
+1. PreRequisities:
  - node V18.18.1
  - npm  9.8.1
 
-Running:
+2. Running:
 - clone the repo: git clone https://github.com/nazps/playwright-demo-executor.git
-In terminal: 
 
-to only run tests:
+3. In terminal: 
+
+- to only run tests:
 ```
 npm install
 npm run test
 ```
-to start a server and execute tests via pressing a button:
+- to start a server and execute tests via pressing a button:
 ```
 npm start
 ```
