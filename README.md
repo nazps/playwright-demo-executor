@@ -3,6 +3,7 @@ PreRequisities:
  - npm  9.8.1
 
 Running:
+- clone the repo: git clone https://github.com/nazps/playwright-demo-executor.git
 In terminal: 
 
 to only run tests:
