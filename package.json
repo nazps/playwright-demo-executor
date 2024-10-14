@@ -1,0 +1,27 @@
+{
+  "name": "playwright-demo",
+  "version": "1.0.0",
+  "description": "",
+  "main": "src/router/index.ts",
+  "scripts": {
+    "start": "ts-node src/app.ts",
+    "test": "npx playwright test"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@playwright/test": "^1.47.1",
+    "@types/express": "^4.17.21",
+    "@types/node": "^22.5.5",
+    "ts-node": "^10.9.2",
+    "tsx": "^4.19.1",
+    "typescript": "^5.6.2"
+  },
+  "dependencies": {
+    "@faker-js/faker": "^9.0.1",
+    "dotenv": "^16.4.5",
+    "express": "^4.21.0",
+    "jsforce": "^3.4.1"
+  }
+}

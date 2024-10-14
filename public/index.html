@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Run Tests</title>
+
+</head>
+<body>
+
+    <!-- Container wrapping the textarea and the archer -->
+    <div id="resultContainer">
+        <!-- Standard textarea where the archer will move along the edges -->
+        <div id="result"></textarea>
+    </div>
+
+    <!-- Run Tests button at the bottom-right corner of the viewport -->
+    <button id="runTestsButton">Run Tests</button>
+
+    <script>
+        document.getElementById('runTestsButton').addEventListener('click', async () => {
+            const result = document.getElementById('result');            
+            const eventSource = new EventSource('/events');
+            eventSource.onmessage = function(event) {
+                // Jeśli otrzymamy komunikat o zakończeniu testów, zamknij połączenie
+                if (event.data === '[TESTS_COMPLETED]') {
+                    const completedMessage = document.createElement('div');
+                    completedMessage.textContent = 'Tests completed.';
+                    result.appendChild(completedMessage);
+    
+                    eventSource.close(); // Zamknij połączenie SSE
+                    console.log('Connection closed');
+                } else {
+                    // Inne dane wyświetlamy na stronie
+                    const newMessage = document.createElement('div');
+                    newMessage.textContent = event.data;
+                    result.appendChild(newMessage);
+                }
+    
+                // Automatyczne przewijanie w dół, aby zobaczyć najnowsze wiadomości
+                window.scrollTo(0, document.body.scrollHeight);
+            };
+    
+            eventSource.onerror = function() {
+                console.error('Error receiving SSE');
+                eventSource.close(); // Zamknięcie połączenia w razie błędu
+            }});
+    </script>
+</body>
+</html>
